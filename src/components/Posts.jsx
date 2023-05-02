@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-const Notes = () => {
-    const [notes,setNotes]=useState("")
+const Posts = () => {
+    const [posts,setNotes]=useState("")
     useEffect(()=>{
-        fetch("http://localhost:8080/notes",{
+        fetch("https://misty-clothes-moth.cyclic.app/posts",{
         headers:{
             "Authorization":`Bearer ${localStorage.getItem("token")} `
         }
@@ -16,8 +16,8 @@ const Notes = () => {
   
     },[])
   return (
-    <div>Notes</div>
+    <div>posts</div>
   )
 }
 
-export default Notes
+export default Posts

@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 const Signup = () => {
   const [name,setName]=useState("");
   const [email,setEmail]=useState("");
-  const [pass,setPass]=useState("");
-  const [age,setAge]=useState("")
+  const [password,setPassword]=useState("");
+  const [gender,setgender]=useState("")
 
   const handleSubmit=()=>{
-      const payload={name,email,pass,age}
-      fetch("http://localhost:8080/users/register",{
+      const payload={email,password}
+      fetch("https://misty-clothes-moth.cyclic.app/users/register",{
         method:"POST",
         headers:{
           "Content-type":"application/json"
@@ -20,19 +20,16 @@ const Signup = () => {
   }
 
   return (
-   
     <>
     <div><h1>Register</h1></div>
     <div>
         Name:<input type="text" placeholder='enter name' value={name} onChange={(e)=>setName(e.target.value)}/>
         Email:<input type="text" placeholder='enter email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
-        Age:<input type="text" placeholder='enter age' value={age} onChange={(e)=>setAge(e.target.value)}/>
-        Pass:<input type="password" placeholder='enter password' value={pass} onChange={(e)=>setPass(e.target.value)}/>
+        gender:<input type="text" placeholder='enter gender' value={gender} onChange={(e)=>setgender(e.target.value)}/>
+        Pass:<input type="password" placeholder='enter password' value={password} onChange={(e)=>setPassword(e.target.value)}/>
         <button onClick={handleSubmit}>submit</button>
-        
     </div>
     </>
-    
   )
 }
 
